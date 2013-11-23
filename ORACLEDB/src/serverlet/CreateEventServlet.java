@@ -1,6 +1,7 @@
 package serverlet;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -21,19 +22,23 @@ public class CreateEventServlet extends HttpServlet {
 	
 		PrintWriter out = response.getWriter();
 
-
-
+		HashMap<String, String> hm = SearchingFilters.defaultLocation(25);
+		StringBuffer results = new StringBuffer();
+		
+		for(String s : hm.keySet()){
+			results.append("<option value=\"" + hm.get(s) + "\">" + s + "</option>");
+		}
+		
 	
 		StringTemplateGroup templates = new StringTemplateGroup("mygroup",
 				"templates");
 		StringTemplate st = templates.getInstanceOf("CreateEvent");
-		
+		st.setAttribute("results", results);
 		out.println(st.toString());
 		
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String e_id = request.getParameter("e_id");
 		String name = request.getParameter("name");
 		String date = request.getParameter("date");
 		String price = request.getParameter("price");
@@ -41,7 +46,7 @@ public class CreateEventServlet extends HttpServlet {
 		String description = request.getParameter("description");
 		
 		
-		boolean b = OracleJDBC.createEvent(e_id, name, date, l_id, description, price);
+		boolean b = OracleJDBC.createEvent(name, date, l_id, description, price);
 		
 		PrintWriter out = response.getWriter();
 		if(b){

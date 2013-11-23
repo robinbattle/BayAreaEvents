@@ -101,8 +101,7 @@ public class OracleJDBC {
 		Statement stmt;
 		String query;
 		try {
-			stmt = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
-					ResultSet.CONCUR_UPDATABLE);
+			stmt = connection.createStatement();
 
 			query = "SELECT * FROM ("
 					+ "SELECT e_id, price, edate, ename, l_id, description, rownum rn "
@@ -198,7 +197,35 @@ public class OracleJDBC {
 		return rs;
 	}
 	
-	
+	public static ResultSet searchEventByLocation(String lname){
+		
+		
+		if (connection == null)
+			return null;
+
+		ResultSet rs = null;
+		Statement stmt;
+		String query;
+		try {
+			stmt = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
+
+			query = "SELECT * from Event where l_id = (Select l_id from Location where lname='"+ lname +"')";
+			System.out.println(query);
+
+			rs = stmt.executeQuery(query);
+			
+		
+			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+		
+		
+	}
 	
 	
 	public static ResultSet searchEventByID(String ID, String tableName){
@@ -214,6 +241,33 @@ public class OracleJDBC {
 
 			query = "SELECT e_id, price, edate, ename, l_id, description "
 					+ "FROM "+ tableName +" WHERE E_ID='"+ ID +"'" ;
+					
+
+			System.out.println(query);
+
+			rs = stmt.executeQuery(query);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+		
+	}
+	
+	public static ResultSet searchEventByName(String name, String tableName){
+		if (connection == null)
+			return null;
+
+		ResultSet rs = null;
+		Statement stmt;
+		String query;
+		try {
+			stmt = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
+
+			query = "SELECT e_id, price, edate, ename, l_id, description "
+					+ "FROM "+ tableName +" WHERE ename='"+ name +"'" ;
 					
 
 			System.out.println(query);
@@ -254,7 +308,7 @@ public class OracleJDBC {
 	}
 	
 	
-	public static Boolean createEvent(String e_id, String name, String date, String l_id, String description, String price){
+	public static Boolean createEvent(String name, String date, String l_id, String description, String price){
 		if (connection == null)
 			return null;
 
@@ -269,7 +323,7 @@ public class OracleJDBC {
 					ResultSet.CONCUR_UPDATABLE);
 
 			query = "insert into Event(e_id, price, edate, ename, l_id, description) values "
-					+ "('"+ e_id +"','" + price + "','" + date + "','" + name + "','" + l_id + "','" + description + "')";
+					+ "(event_sequence.nextval" +",'" + price + "','" + date + "','" + name + "','" + l_id + "','" + description + "')";
 					
 
 			System.out.println(query);
@@ -280,6 +334,63 @@ public class OracleJDBC {
 			return false;
 		}
 		return true;
+		
+	}
+	
+	
+	public static ResultSet defaultLocation(int size){
+		if (connection == null)
+			return null;
+
+		ResultSet rs = null;
+		Statement stmt;
+		String query;
+		
+
+		
+		try {
+			stmt = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
+
+			query = "SELECT * FROM location WHERE rownum < " + size;
+					
+			System.out.println(query);
+
+			rs = stmt.executeQuery(query);
+
+		} catch (SQLException e) {
+			
+		}
+		return rs;
+		
+	}
+	
+	
+	
+	public static ResultSet defaultEventNames(int size){
+		if (connection == null)
+			return null;
+
+		ResultSet rs = null;
+		Statement stmt;
+		String query;
+		
+
+		
+		try {
+			stmt = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
+
+			query = "SELECT * FROM event WHERE rownum < " + size;
+					
+			System.out.println(query);
+
+			rs = stmt.executeQuery(query);
+
+		} catch (SQLException e) {
+			
+		}
+		return rs;
 		
 	}
 	

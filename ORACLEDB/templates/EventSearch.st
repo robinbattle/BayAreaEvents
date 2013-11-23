@@ -1,13 +1,8 @@
 
 
-
-
-
-
-
 <html>
   <head>
-    <title>Create Event</title>
+    <title>Event Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
@@ -19,7 +14,6 @@
 			font-family: 'Sonsie One', cursive;
 			font-size:90;
 		}
-		
 		.fillparent{
 			display:table-cell; 
 			width:100%;
@@ -34,38 +28,51 @@
     <div class="container" id="banner_top">
     	<div class="row">
     		<div class="col-md-12">
-    			<p class="title">Create Event</p>
+    			<p class="title">Event Search</p>
     		</div>
     	</div>
     	
     	
     	
     	<div class="row">
+    	
     		<div class="col-md-8">
-	    		
-					
-					
-					    
-			    <form action="/createEvent" method="post">
-			    	<table class="table table-hover">
-			    		<tr><td><b>Name:</b></td> <td><input class="fillparent" type="text" name="name"/></td></tr>
-			    		<tr><td><b>Date:</b></td> <td><input class="fillparent" type="text" name="date" id="datepicker" value="23-Nov-2013"/></td></tr>
-			    		<tr><td><b>Price:</b></td> <td><input class="fillparent" type="text" name="price"/></td></tr>
-			    		<tr><td><b>Location:</b></td> <td><select class="fillparent" name="l_id" >$results$</select></td></tr>
-			    		<tr><td><b>Description:</b></td> <td><textarea class="fillparent" name="description" placeholder="some description here" ></textarea></td></tr>
+    		
+    			<form action="/eventSearch" method="get">
+			    	<input class="fillparent" type="text" name="eventName" id="locationText"/>
 			    		
-			    		<tr><td></td> <td><input class="btn btn-success pull-right" type="submit" value="Submit"></td></tr>
-			    		
-			    	</table>
+			    	<input class="btn btn-success pull-right" type="submit" value="Submit">
 			  	
 			  		
 				</form>
-	
-					
-					
-					
-				
+    		</div>
+    		
+    		<div class="progress progress-striped active" style="display:none">
+			  <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+			    <span class="sr-only">45% Complete</span>
+			  </div>
 			</div>
+    		
+    		<div class="col-md-4">
+				<select onchange="document.getElementById('locationText').value=this.options[this.selectedIndex].value;">
+					$examples$
+				</select>
+			</div>
+    	
+    		<div class="col-md-8">
+	    		<table class="table table-hover">
+					$results$
+				</table>
+			</div>
+			
+			
+			
+			
+			
+			
+		
+				
+				
     	</div>
     </div>
 	
@@ -76,7 +83,18 @@
     <script src="https://www.cs.usfca.edu/~blu2/js/script.js"></script>
     
     
+    <script>
+	var index = document.getElementById("startIndex").value;
 
+	if(index== ''){
+		document.getElementById("startIndex").value = 0;
+	}else{
+		alert(index);
+		document.getElementById("startIndex").value = parseInt('0') + 10;
+		
+		
+	}
+     </script>
 	
   </body>
 </html>

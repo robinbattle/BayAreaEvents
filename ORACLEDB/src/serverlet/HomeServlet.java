@@ -51,7 +51,7 @@ public class HomeServlet extends HttpServlet {
 	
 		StringTemplateGroup templates = new StringTemplateGroup("mygroup",
 				"templates");
-		StringTemplate st = templates.getInstanceOf("home");
+		StringTemplate st = templates.getInstanceOf("Home");
 
 		//st.setAttribute("results", "<img src=\"img/sanfran.png\"></img>");
 

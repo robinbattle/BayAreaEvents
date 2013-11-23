@@ -20,14 +20,17 @@ public class MyServer {
         ServletHandler handler=new ServletHandler();
         server.setHandler(handler);
 
-  
         
         handler.addServletWithMapping("serverlet.HomeServlet", "/");
         handler.addServletWithMapping("serverlet.AllEventServlet", "/all");
         handler.addServletWithMapping("serverlet.PricedEventServlet", "/priced");
         handler.addServletWithMapping("serverlet.FreeEventServlet", "/free");
+        handler.addServletWithMapping("serverlet.LocationSearchServlet", "/locationSearch");
+        handler.addServletWithMapping("serverlet.EventSearchServlet", "/eventSearch");
         handler.addServletWithMapping("serverlet.EventDetailsServlet", "/eventDetails");
         handler.addServletWithMapping("serverlet.CreateEventServlet", "/createEvent");
+        
+        handler.addServletWithMapping("serverlet.TestServlet", "/test");
         
         
 

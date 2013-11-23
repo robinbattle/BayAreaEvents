@@ -7,7 +7,9 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
 	<style>
-		body {background-color:#b0c4de;}
+		body {
+			background-color:#b0c4de;
+		}
 		.container{
 			background-image:url('http://upload.wikimedia.org/wikipedia/en/7/75/DowntownSF.jpg');
 			opacity:0;
@@ -17,10 +19,18 @@
 			font-family: 'Sonsie One', cursive;
 			font-size:90;
 		}
+		
+		body{
+			border-color:white;
+    		border:10px;
+		
+		}
 	</style>
 
   </head>
-  <body >
+  <body>
+  
+    <br>
     
     <div class="container" id="banner_top">
     	<div class="row">
@@ -47,7 +57,11 @@
     			
     		</div>
     	</div>
-    	<div>
+    	
+
+    	
+    	
+    <div>
     		<br>
     		<br>
     		<br>

@@ -5,28 +5,65 @@
     <title>Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
+	<style>
+		body {background-color:#b0c4de;}
 
+		
+		.title{
+			font-family: 'Sonsie One', cursive;
+			font-size:90;
+		}
+	</style>
 
   </head>
   <body>
-    <h1>All Events</h1>
-    
-    
-    
-    <form action="/" method="get">
-  		<p>Date: <input type="text" id="datepicker" name="date"/></p>
-  		<input type="submit" value="Submit">
-	</form>
 
-	$results$
+    
+    <div class="container" id="banner_top">
+    	<div class="row">
+    		<div class="col-md-8">
+    			<p class="title">All Events</p>
+    		</div>
+    	</div>
+    	
+    	<div class="row">
+    		<div class="col-md-8">
+    			<form action="/all" method="get">
+			  		Date: <input type="text" id="datepicker" name="date" $dateValue$/>
+			  		<input class="btn btn-primary btn-sm" type="submit" value="Submit">
+				</form>
+    		</div>
+    	</div>
+    	
+    	<div class="row">
+    		<div class="col-md-8">
+	    		<table class="table table-hover">
+					$results$
+				</table>
+			</div>
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-8">
+				<form action="/all" method="get">
+					<input type="hidden" name="start" value="$start$">
+					<input type="hidden" name="next" value="$next$">
+					$date$
+					<input class="btn btn-primary btn-sm pull-right" type="submit" value="Next>>">
+				</form>
+			</div>
+    	</div>
+    </div>
+    
+
+
+	
+
+
+
 	
 	<br>
-	index: $index$
-	
-	<form action="/" method="get">
-		<input type="hidden" name="start" id="startIndex">
-		<input type="submit" value="next">
-	</form>
+
 	
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
