@@ -45,15 +45,26 @@ public class CreateEventServlet extends HttpServlet {
 		String l_id = request.getParameter("l_id");
 		String description = request.getParameter("description");
 		
-		
+		OracleJDBC.connectToDB();
 		boolean b = OracleJDBC.createEvent(name, date, l_id, description, price);
+		OracleJDBC.closeDB();
 		
 		PrintWriter out = response.getWriter();
+		
+		String results = "";
+		StringTemplateGroup templates = new StringTemplateGroup("mygroup",
+				"templates");
+		StringTemplate st = templates.getInstanceOf("CreateEventResponse");
+		
 		if(b){
-			out.println("yes");
+			st.setAttribute("results", "<img src=\"https://www.cs.usfca.edu/~blu2/images/Yes_check.png\" style=\"width:200px;height:200px;\"></img>");
 		}else{
-			out.println("no");
+			st.setAttribute("results", "<img src=\"https://www.cs.usfca.edu/~blu2/images/Red_cross_tick.png\" style=\"width:200px;height:200px;\"></img>");
 		}
+		
+		out.println(st.toString());
+		
+		
 		
 	}
 	

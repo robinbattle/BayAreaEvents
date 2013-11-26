@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import tool.DateFormatter;
+
 public class OracleJDBC {
 
 	static Connection connection;
@@ -50,6 +52,16 @@ public class OracleJDBC {
 
 		return true;
 
+	}
+	
+	public static void closeDB(){
+		if(connection != null){
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				
+			}
+		}
 	}
 	
 	/**
@@ -317,6 +329,11 @@ public class OracleJDBC {
 		String query;
 		
 
+		if (date != null) {
+			date = new DateFormatter(date).format();
+		}else{
+			date = "26-Nov-2013";
+		}
 		
 		try {
 			stmt = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,

@@ -34,7 +34,7 @@
     <div class="container" id="banner_top">
     	<div class="row">
     		<div class="col-md-12">
-    			<p class="title">Create Event</p>
+    			<p class="title">Response</p>
     		</div>
     	</div>
     	
@@ -43,26 +43,9 @@
     	<div class="row">
     		<div class="col-md-8">
 	    		
+				
 					
-					
-					    
-			    <form action="/createEvent" method="post">
-			    	<table class="table table-hover">
-			    		<tr><td><b>Name:</b></td> <td><input class="fillparent" type="text" name="name"/></td></tr>
-			    		<tr><td><b>Date:</b></td> <td><input class="fillparent" type="text" name="date" id="datepicker" /></td></tr>
-			    		<tr><td><b>Price:</b></td> <td><input class="fillparent" type="text" name="price"/></td></tr>
-			    		<tr><td><b>Location:</b></td> <td><select class="fillparent" name="l_id" >$results$</select></td></tr>
-			    		<tr><td><b>Description:</b></td> <td><textarea class="fillparent" name="description" placeholder="some description here" ></textarea></td></tr>
-			    		
-			    		<tr><td></td> <td><input class="btn btn-success pull-right" type="submit" value="Submit"></td></tr>
-			    		
-			    	</table>
-			  	
-			  		
-				</form>
-	
-					
-					
+			$results$
 					
 				
 			</div>

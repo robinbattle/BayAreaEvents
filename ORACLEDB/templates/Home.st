@@ -44,20 +44,42 @@
     		<div class="col-md-4">
     			
     			<img src="http://www.cs.usfca.edu/~blu2/images/all.png"></img>
-    			<a type="button" class="btn btn-success btn-lg btn-block" href="/all" target="_blank">All</a>
+    			<a type="button" class="btn btn-warning btn-lg btn-block" href="/all" target="_blank">All</a>
     		</div>
     		<div class="col-md-4">
     			<img src="http://www.cs.usfca.edu/~blu2/images/free.png"></img>
-    			<a type="button" class="btn btn-primary btn-lg btn-block" href="/free" target="_blank">Free</a>
+    			<a type="button" class="btn btn-success btn-lg btn-block" href="/free" target="_blank">Free</a>
     			
     		</div>
     		<div class="col-md-4">
     			<img src="http://www.cs.usfca.edu/~blu2/images/priced.png"></img>
-    			<a type="button" class="btn btn-warning btn-lg btn-block" href="/priced" target="_blank">Priced</a>
+    			<a type="button" class="btn btn-primary btn-lg btn-block" href="/priced" target="_blank">Priced</a>
     			
     		</div>
     	</div>
     	
+    	<br>
+    	<br>
+    	
+    	<div class="row">
+    		<div class="col-md-4">
+    			
+    			
+    			<a type="button" class="btn btn-info btn-lg btn-block" href="/eventSearch" target="_blank">Search By Name</a>
+    		</div>
+    		<div class="col-md-4">
+    			
+    			<a type="button" class="btn btn-default btn-lg btn-block" href="/locationSearch" target="_blank">Search By Location</a>
+    			
+    		</div>
+    		
+    		<div class="col-md-4">
+    			
+    			<a type="button" class="btn btn-danger btn-lg btn-block" href="/createEvent" target="_blank">Create Event</a>
+    			
+    		</div>
+  
+    	</div>
 
     	
     	

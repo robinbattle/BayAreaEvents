@@ -26,6 +26,8 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		OracleJDBC.closeDB();
 		return sb.toString();
 	}
 
@@ -50,6 +52,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return sb.toString();
 	}
 
@@ -76,6 +79,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return sb.toString();
 
 	}
@@ -100,6 +104,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return sb.toString();
 
 	}
@@ -123,6 +128,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return hm;
 		
 	}
@@ -147,6 +153,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return hm;
 		
 	}
@@ -181,6 +188,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return sb.toString();
 	}
 
@@ -203,6 +211,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return sb.toString();
 	}
 	
@@ -224,6 +233,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return sb.toString();
 		
 	}
@@ -246,6 +256,7 @@ public class SearchingFilters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		OracleJDBC.closeDB();
 		return sb.toString();
 	}
 	
